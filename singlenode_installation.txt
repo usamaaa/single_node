@@ -1,0 +1,89 @@
+single node istallation
+
+	create instances
+	from terminal connect to data center
+	login with localhost 
+	arp
+	ping ip adress
+	traceroute ip adress
+	
+	Generate key
+	ssh-keygen
+	cd .ssh 
+	ssh localhost
+	append the id_rsa key to authorized key 
+	cat id_rsa >> authorized key
+	
+	step 3
+	install openjdk
+	sudo apt-get install openjdk-7-jre
+	
+	
+	step 4 
+		download hadoop from apache.org OR just copy the link location
+		hadoop-1.2.1.tar.gz
+		 wget copy the link location.
+		 
+		//untar the file
+			tar -zxvf hadoop-1.2.1.tar.gz
+		
+		//travel to hadoop/bin folder and executed hadoop exc
+		   ./hadoop
+		
+		//now move hadoop-1.2.1 /usr/local/hadoop
+		 sudo mv hadoop-1.2.1 /usr/local/hadoop
+	
+	step 5	
+		//now open bashrc file
+		sudo nano .bashrc 
+		//copy the script  and save the file
+		//run the bashrc file 
+			bash
+			
+		now go to hadoop folder
+			cd /usr/local/hadoop/conf
+			 open core-site.xml , hdfs-site.xml , hadoop-env.xml , mapred-site.xml
+			 nano core-site.xml
+			copy the script  
+			
+	step 6 
+		now format the namenode 
+		cd 
+		hadoop namenode -format
+		
+		cd /usr/local/hadoop/tmp
+		ls 
+		cd dfs
+		cd name
+		cd current
+		cd
+		
+		
+		start the dfs file 
+		start-dfs.sh
+		
+		
+		now travel to /usr/local/hadoop/tmp/dfs/data/current
+		make the directory  in hadoop 
+		
+		$hadoop fs -mkdir name_of_folder
+		copy or write some data in that folder
+		
+		
+		
+	step 7
+	 open a browser and copy the ip adress with :50070
+	 eg:
+	 18.220.247.13:50070
+	 
+	 browse the file system
+	  replace localhost with your ip adress
+	  
+	  
+	now put the file in hadoop cluster for processing the data 
+	 $hadoop fs -put filename .
+	 
+	 for processing the data we have to make jar file
+	 $hadoop jar /usr/local/hadoop/hadoop-example-1.2.1.jar wordcount hadoop-1.2.1.tar.gz result
+
+now you can see the processed data in the result folder.	 

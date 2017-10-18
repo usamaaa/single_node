@@ -1,0 +1,42 @@
+#BASHRC FILE
+
+export HADOOP_PREFIX=/usr/local/hadoop/
+export PATH=$PATH:$HADOOP_PREFIX/bin
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+export PATH=$PATH:$JAVA_HOME
+
+#Hadoop environment script file
+
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+export HADOOP_OPTS=-Djava.net.preferIPV4Stack=true
+
+
+#Core site XML
+
+<property>
+<name>fs.default.name</name>
+<value>hdfs://localhost:9000</value>
+</property>
+
+<property>
+<name>hadoop.tmp.dir</name>
+<value>/usr/local/hadoop/tmp</value>
+</property>
+
+
+
+#HDFS Config File (XML)
+
+<property>
+<name>dfs.replication</name>
+<value>1</value>
+</property>
+
+
+
+#MApreduce Config File (XML)
+
+<property>
+<name>mapred.job.tracker</name>
+<value>hdfs://localhost:9001</value>
+</property>
